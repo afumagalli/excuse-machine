@@ -2,6 +2,8 @@
 
 A simple web app where students can submit and upvote reasons why an assignment is late.
 
+Production is available at: https://excuse-machine.vercel.app
+
 Built with Next.js 16.1, React 19.2.3, Prisma 6.18.0, and PostgreSQL.
 
 ## Prerequisites
