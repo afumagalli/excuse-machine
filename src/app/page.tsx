@@ -2,6 +2,9 @@ import { prisma } from "@/lib/prisma";
 import { SubmitExcuseForm } from "@/app/components/SubmitExcuseForm";
 import { UpvoteButton } from "@/app/components/UpvoteButton";
 
+// Force dynamic rendering to prevent static caching in production
+export const dynamic = 'force-dynamic';
+
 export default async function Home() {
   const excuses = await prisma.excuse.findMany({
     orderBy: { upvotes: "desc" },

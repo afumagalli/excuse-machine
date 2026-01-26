@@ -1,4 +1,5 @@
 import { NextRequest } from "next/server";
+import { revalidatePath } from "next/cache";
 import { prisma } from "@/lib/prisma";
 
 export async function POST(request: NextRequest) {
@@ -23,6 +24,9 @@ export async function POST(request: NextRequest) {
   const excuse = await prisma.excuse.create({
     data: { text },
   });
+
+  // Revalidate the home page cache to show the new excuse immediately
+  revalidatePath("/");
 
   return Response.json(excuse, { status: 201 });
 }
