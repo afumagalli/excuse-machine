@@ -1,3 +1,4 @@
+import { revalidatePath } from "next/cache";
 import { prisma } from "@/lib/prisma";
 
 export async function PATCH(
@@ -11,6 +12,10 @@ export async function PATCH(
       where: { id },
       data: { upvotes: { increment: 1 } },
     });
+    
+    // Revalidate the home page cache to show updated vote counts
+    revalidatePath("/");
+    
     return Response.json(excuse);
   } catch (e) {
     if (e && typeof e === "object" && "code" in e && e.code === "P2025") {
