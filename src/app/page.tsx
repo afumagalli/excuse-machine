@@ -9,10 +9,12 @@ export default async function Home() {
 
   return (
     <main>
-      <h1>Welcome to The Excuse Machine</h1>
-      <p>Submit your best excuses, see what others have come up with.</p>
+      <header style={{ marginBottom: "2rem" }}>
+        <h1>Welcome to The Excuse Machine</h1>
+        <p>Submit your best excuses, see what others have come up with.</p>
+      </header>
 
-      <section aria-label="Submit an excuse">
+      <section aria-label="Submit an excuse" style={{ marginBottom: "3rem" }}>
         <SubmitExcuseForm />
       </section>
 
